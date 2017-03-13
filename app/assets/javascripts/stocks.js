@@ -1,6 +1,9 @@
+/*global $*/
+/*global show_spinner*/
+/*global hide_spinner*/
 
 
-init_stock_lookup;
+var init_stock_lookup;
 
 init_stock_lookup = function() {
     $('#stock-lookup-form').on('ajax:before', function(event, data, status){
@@ -12,7 +15,6 @@ init_stock_lookup = function() {
     });
     
     $('#stock-lookup-form').on('ajax:success', function(event, data, status){
-      alert("hello");
       $('#stock-lookup').replaceWith(data);
         init_stock_lookup();
     });
@@ -20,7 +22,6 @@ init_stock_lookup = function() {
 //}
 
     $('#stock-lookup-form').on('ajax:error', function(event, xhr, status, error){
-        console.log("test");
         hide_spinner();
         $('#stock-lookup-results').replaceWith(' ');
         $('#stock-lookup-errors').replaceWith('Stock was not found');
@@ -32,5 +33,5 @@ init_stock_lookup = function() {
 $(document).ready(function() {
   init_stock_lookup();
     
-})
+});
 

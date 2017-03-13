@@ -21,5 +21,5 @@ var hide_spinner = function(){
 };
 
 var show_spinner = function(){
-    $('spinner').show();
+    $('#spinner').show();
 };
